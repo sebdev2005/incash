@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">incash</string>
+    <string name="olvidaste_tu_contrasena">¿Olvidaste tu contraseña?</string>
+    <string name="nombre_aplicacion">Incash</string>
+    <string name="eslogan_1">Qué bueno verte\nde nuevo.</string>
+    <string name="eslogan_2">Inicia sesión y sigue en control\nde tu dinero.</string>
+    <string name="correo">Correo electrónico</string>
+    <string name="correo_placeholder">tu@correo.com</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="contrasena_placeholder">Ingresa tu contraseña</string>
+    <string name="btn_iniciar">Iniciar sesión</string>
+    <string name="texto_3">¿Aún no tienes cuenta?</string>
+    <string name="link_registrarse">Regístrate</string>
+    <string name="agardecimiento">Tu tranquilidad es nuestra prioridad.</string>
 </resources>
