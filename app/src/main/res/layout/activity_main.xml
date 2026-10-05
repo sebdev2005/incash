@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="24dp"
+    android:paddingVertical="32dp"
+    android:background="#FFFFFF">
+
+    <!-- Logo en texto -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nombre_aplicacion"
+        android:textColor="#14284B"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"/>
+
+    <!-- Títulos principales -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/eslogan_1"
+        android:textColor="#14284B"
+        android:textSize="32sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/eslogan_2"
+        android:textColor="#5F6368"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="40dp"/>
+
+    <!-- Campo Correo electrónico -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/correo"
+        android:textColor="#14284B"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="@string/correo_placeholder"
+        android:inputType="textEmailAddress"
+        android:background="@android:drawable/editbox_background_normal"
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Campo Contraseña -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contrasena"
+        android:textColor="#14284B"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="@string/contrasena_placeholder"
+        android:inputType="textPassword"
+        android:background="@android:drawable/editbox_background_normal"
+        android:paddingHorizontal="16dp"/>
+
+    <!-- Botón Olvidaste contraseña -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/olvidaste_tu_contrasena"
+        android:textColor="#14284B"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_gravity="end"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Botón Iniciar sesión -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/btn_iniciar"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#14284B"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/texto_3"
+            android:textColor="#5F6368"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/link_registrarse"
+            android:textColor="#14284B"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/agardecimiento"
+        android:textColor="#5F6368"
+        android:textSize="12sp"
+        android:gravity="center"/>
+
+</LinearLayout>
