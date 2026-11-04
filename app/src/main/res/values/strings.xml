@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">incash-proyecto</string>
+    <string name="app_name">Incash</string>
+    <string name="app_logo_desc">Incash Logo</string>
+
+    <!-- Pantalla de Registro -->
+    <string name="register_title">Crea tu cuenta.</string>
+    <string name="register_subtitle">Regístrate y empieza a tomar el control de tu dinero.</string>
+
+    <string name="label_full_name">Nombre completo</string>
+    <string name="hint_full_name">Tu nombre y apellido</string>
+
+    <string name="label_email">Correo electrónico</string>
+    <string name="hint_email">tu@correo.com</string>
+
+    <string name="label_password">Contraseña</string>
+    <string name="hint_password">Crea tu contraseña</string>
+    <string name="helper_password_min">Mínimo 8 caracteres</string>
+
+    <string name="label_confirm_password">Confirmar contraseña</string>
+    <string name="hint_confirm_password">Repite tu contraseña</string>
+
+    <string name="terms_and_privacy">Acepto los Términos y condiciones y la Política de privacidad</string>
+    <string name="btn_create_account">Crear cuenta</string>
+
+    <string name="already_have_account">¿Ya tienes cuenta? </string>
+    <string name="action_login">Inicia sesión</string>
 </resources>
