@@ -41,6 +41,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
-    implementation("org.postgresql:postgresql:42.7.14")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
 }

@@ -87,7 +87,7 @@ class MovimientoFormActivity : AppCompatActivity() {
                 fecha = fecha
             )
             ejecutar(btnGuardar, if (existente == null) "Movimiento creado" else "Movimiento actualizado") {
-                MovimientosRepo.guardar(mov)
+                MovimientosRepo.guardar(this, mov)
             }
         }
 
@@ -97,7 +97,7 @@ class MovimientoFormActivity : AppCompatActivity() {
                 .setMessage("¿Seguro que quieres eliminar este movimiento?")
                 .setNegativeButton("Cancelar", null)
                 .setPositiveButton("Eliminar") { _, _ ->
-                    ejecutar(btnEliminar, "Movimiento eliminado") { MovimientosRepo.eliminar(existente!!.id!!) }
+                    ejecutar(btnEliminar, "Movimiento eliminado") { MovimientosRepo.eliminar(this, existente!!.id!!) }
                 }
                 .show()
         }

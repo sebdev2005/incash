@@ -2,7 +2,6 @@ package com.example.incash_proyecto
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
@@ -10,17 +9,21 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.incash_proyecto.db.DbConfig
-import kotlinx.coroutines.Dispatchers
+import com.example.incash_proyecto.db.UsuariosRepo
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.sql.Connection
-import java.sql.DriverManager
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Con sesión guardada se entra directo al Dashboard.
+        if (Sesion.usuarioId(this) != -1L) {
+            startActivity(Intent(this, DashboardActivity::class.java))
+            finish()
+            return
+        }
+
         setContentView(R.layout.activity_main)
 
         val etEmail = findViewById<EditText>(R.id.etEmail)
@@ -73,35 +76,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private suspend fun realizarLogin(email: String, pass: String) {
-        val loginExitoso = withContext(Dispatchers.IO) {
-            try {
-                val config = DbConfig()
-                val connection: Connection = DriverManager.getConnection(
-                    config.getJdbcUrl(),
-                    config.user,
-                    config.pass
-                )
-
-                val isValid = connection.isValid(5)
-                connection.close()
-
-                isValid
-
-            } catch (e: Throwable) {
-                Log.e("DB_ERROR", "Error conectando a BD", e)
-                false
-            }
+        val usuario = try {
+            UsuariosRepo.login(this, email, pass)
+        } catch (e: Exception) {
+            Toast.makeText(this, "No se pudo iniciar sesión, intenta de nuevo", Toast.LENGTH_LONG).show()
+            return
         }
 
-        if (loginExitoso) {
-            Toast.makeText(this@MainActivity, "¡Bienvenido!", Toast.LENGTH_SHORT).show()
+        if (usuario != null) {
+            Sesion.iniciar(this, usuario)
+            Toast.makeText(this@MainActivity, "¡Bienvenido, ${usuario.nombre}!", Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this@MainActivity, DashboardActivity::class.java)
             startActivity(intent)
 
             finish()
         } else {
-            Toast.makeText(this@MainActivity, "Error: Revisa tus credenciales o conexión", Toast.LENGTH_LONG).show()
+            Toast.makeText(this@MainActivity, "Correo o contraseña incorrectos", Toast.LENGTH_LONG).show()
         }
     }
 }
