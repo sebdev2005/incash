@@ -2,6 +2,7 @@ package com.example.incash_proyecto.db
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.sqlite.SQLiteConstraintException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.security.MessageDigest
@@ -24,9 +25,11 @@ object UsuariosRepo {
                 put("pass_hash", hashClave(clave, salt))
                 put("salt", Base64.getEncoder().encodeToString(salt))
             }
-            // insert devuelve -1 si choca con el unique del correo.
-            val id = AppDb.get(context).writableDatabase.insert("usuarios", null, valores)
-            if (id == -1L) null else Usuario(id, nombre)
+            try {
+                Usuario(AppDb.get(context).writableDatabase.insertOrThrow("usuarios", null, valores), nombre)
+            } catch (e: SQLiteConstraintException) {
+                null // el correo ya existe (unique)
+            }
         }
 
     /** Devuelve el usuario si el correo y la contraseña coinciden; si no, null. */

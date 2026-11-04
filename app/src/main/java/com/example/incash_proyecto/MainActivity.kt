@@ -76,7 +76,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private suspend fun realizarLogin(email: String, pass: String) {
-        val usuario = UsuariosRepo.login(this, email, pass)
+        val usuario = try {
+            UsuariosRepo.login(this, email, pass)
+        } catch (e: Exception) {
+            Toast.makeText(this, "No se pudo iniciar sesión, intenta de nuevo", Toast.LENGTH_LONG).show()
+            return
+        }
 
         if (usuario != null) {
             Sesion.iniciar(this, usuario)

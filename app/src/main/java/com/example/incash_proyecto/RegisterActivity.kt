@@ -94,7 +94,13 @@ class RegisterActivity : AppCompatActivity() {
             btnRegister.isEnabled = false
 
             lifecycleScope.launch {
-                val usuario = UsuariosRepo.registrar(this@RegisterActivity, fullName, email, password)
+                val usuario = try {
+                    UsuariosRepo.registrar(this@RegisterActivity, fullName, email, password)
+                } catch (e: Exception) {
+                    Toast.makeText(this@RegisterActivity, "No se pudo crear la cuenta, intenta de nuevo", Toast.LENGTH_LONG).show()
+                    btnRegister.isEnabled = true
+                    return@launch
+                }
                 btnRegister.isEnabled = true
 
                 if (usuario != null) {
