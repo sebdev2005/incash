@@ -2,7 +2,6 @@ package com.example.incash_proyecto
 
 import android.os.Bundle
 import android.text.Html
-import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.CheckBox
@@ -11,12 +10,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.incash_proyecto.db.DbConfig
-import kotlinx.coroutines.Dispatchers
+import com.example.incash_proyecto.db.UsuariosRepo
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.sql.Connection
-import java.sql.DriverManager
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -99,41 +94,21 @@ class RegisterActivity : AppCompatActivity() {
             btnRegister.isEnabled = false
 
             lifecycleScope.launch {
-                val registroExitoso = realizarRegistro(fullName, email, password)
+                val usuario = UsuariosRepo.registrar(this@RegisterActivity, fullName, email, password)
                 btnRegister.isEnabled = true
 
-                if (registroExitoso) {
-                    Toast.makeText(this@RegisterActivity, "¡Cuenta creada exitosamente!", Toast.LENGTH_SHORT).show()
+                if (usuario != null) {
+                    Toast.makeText(this@RegisterActivity, "¡Cuenta creada! Ya puedes iniciar sesión", Toast.LENGTH_SHORT).show()
                     finish()
                 } else {
-                    Toast.makeText(this@RegisterActivity, "Error al registrar la cuenta. Revisa tu conexión.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@RegisterActivity, "Ese correo ya está registrado", Toast.LENGTH_LONG).show()
+                    etEmail.requestFocus()
                 }
             }
         }
 
         tvLogin.setOnClickListener {
             finish()
-        }
-    }
-
-    private suspend fun realizarRegistro(fullName: String, email: String, pass: String): Boolean {
-        return withContext(Dispatchers.IO) {
-            try {
-                val config = DbConfig()
-                val connection: Connection = DriverManager.getConnection(
-                    config.getJdbcUrl(),
-                    config.user,
-                    config.pass
-                )
-
-                val isValid = connection.isValid(5)
-                connection.close()
-
-                isValid
-            } catch (e: Throwable) {
-                Log.e("DB_ERROR", "Error conectando a BD durante el registro", e)
-                false
-            }
         }
     }
 }

@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.incash_proyecto.R
+import com.example.incash_proyecto.Sesion
 import android.widget.Button
 import android.widget.RadioGroup
 import kotlinx.coroutines.Job
@@ -37,6 +38,7 @@ class MovimientosActivity : AppCompatActivity() {
             limite = null
             cargar()
         }
+        findViewById<TextView>(R.id.tvCerrarSesion).setOnClickListener { Sesion.cerrar(this) }
         findViewById<Button>(R.id.btnNuevo).setOnClickListener {
             startActivity(Intent(this, MovimientoFormActivity::class.java))
         }
@@ -58,8 +60,8 @@ class MovimientosActivity : AppCompatActivity() {
         carga = lifecycleScope.launch {
             try {
                 val hoy = LocalDate.now()
-                val (ingresos, gastos) = MovimientosRepo.totalesDesde(hoy.withDayOfMonth(1))
-                val movimientos = MovimientosRepo.listar(tipo, limite)
+                val (ingresos, gastos) = MovimientosRepo.totalesDesde(this@MovimientosActivity, hoy.withDayOfMonth(1))
+                val movimientos = MovimientosRepo.listar(this@MovimientosActivity, tipo, limite)
                 findViewById<TextView>(R.id.tvIngresosMes).text = "Ingresos: +" + formatoCop(ingresos)
                 findViewById<TextView>(R.id.tvGastosMes).text = "Gastos: -" + formatoCop(gastos)
                 pintar(movimientos, hoy)

@@ -2,15 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:paddingHorizontal="24dp"
+    android:paddingVertical="32dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dashboard"
         android:textColor="#14284B"
-        android:textSize="24sp"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvSaludo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="40dp"
+        android:textColor="#5F6368"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btnMovimientos"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:backgroundTint="#14284B"
+        android:text="Movimientos"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvCerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:padding="8dp"
+        android:text="Cerrar sesión"
+        android:textColor="#14284B"
         android:textStyle="bold" />
 </LinearLayout>
