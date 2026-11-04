@@ -17,12 +17,17 @@ import kotlinx.coroutines.withContext
 import java.sql.Connection
 import java.sql.DriverManager
 
-class MainActivity : AppCompatActivity() {
+class   MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        if (SessionManager.haySesion(this)) {
+            startActivity(Intent(this, DashboardActivity::class.java))
+            finish()
+            return
+        }
         val etEmail = findViewById<EditText>(R.id.etEmail)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
@@ -97,6 +102,9 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this@MainActivity, "¡Bienvenido!", Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this@MainActivity, DashboardActivity::class.java)
+
+            SessionManager.guardarSesion(this@MainActivity, email)
+
             startActivity(intent)
 
             finish()

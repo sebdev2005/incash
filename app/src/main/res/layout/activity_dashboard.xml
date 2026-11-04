@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/inc_bg"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/fabAdd"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/bg_fab"
+            android:clickable="true"
+            android:contentDescription="Añadir movimiento"
+            android:elevation="6dp"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="@color/inc_card"
+            android:textSize="28sp" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/inc_border" />
+
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/inc_card"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/navInicio"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🏠" android:textSize="20sp" />
+            <TextView style="@style/Inc.NavLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Inicio" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navMovimientos"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📋" android:textSize="20sp" />
+            <TextView style="@style/Inc.NavLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Movimientos" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navEstadisticas"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📊" android:textSize="20sp" />
+            <TextView style="@style/Inc.NavLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Estadísticas" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navPerfil"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="👤" android:textSize="20sp" />
+            <TextView style="@style/Inc.NavLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Perfil" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

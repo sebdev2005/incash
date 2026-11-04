@@ -23,6 +23,8 @@
         </activity>
         <activity android:name=".movimientos.MovimientosActivity" />
         <activity android:name=".movimientos.MovimientoFormActivity" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".DashboardActivity" />
+        <activity android:name=".RegisterActivity" android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
