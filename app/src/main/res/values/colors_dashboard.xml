@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="inc_bg">#F3F4F6</color>
+    <color name="inc_card">#FFFFFF</color>
+    <color name="inc_navy">#142D4E</color>
+    <color name="inc_blue">#2563EB</color>
+    <color name="inc_gray">#677180</color>
+    <color name="inc_border">#D9DEE5</color>
+    <color name="inc_surface">#FAFBFC</color>
+    <color name="inc_blue_soft">#EBF1FE</color>
+    <color name="inc_neutral_soft">#EEF1F5</color>
+</resources>

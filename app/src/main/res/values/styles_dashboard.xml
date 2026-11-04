@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Si agregas la fuente Inter (res/font/inter.xml), cambia aquí android:fontFamily y listo. -->
+    <!-- Padre vacío: los nombres "Inc.X" heredan de "Inc", que debe existir. -->
+    <style name="Inc" />
+    <style name="Inc.Greeting">
+        <item name="android:textSize">27sp</item>
+        <item name="android:textColor">@color/inc_navy</item>
+        <item name="android:letterSpacing">-0.03</item>
+    </style>
+    <style name="Inc.CardTitle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/inc_navy</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="Inc.Body">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/inc_navy</item>
+    </style>
+    <style name="Inc.BodySemi">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/inc_navy</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="Inc.Small">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/inc_gray</item>
+    </style>
+    <style name="Inc.SmallSemi">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/inc_navy</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="Inc.Tiny">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/inc_gray</item>
+    </style>
+    <style name="Inc.NavLabel">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/inc_gray</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="Inc.Link">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/inc_blue</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+</resources>
