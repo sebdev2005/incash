@@ -28,6 +28,8 @@
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
+        <activity android:name=".movimientos.MovimientosActivity" />
+        <activity android:name=".movimientos.MovimientoFormActivity" android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
